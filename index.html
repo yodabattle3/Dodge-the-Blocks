@@ -2,211 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>YB3 Executor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap" rel="stylesheet">
-  <style>
-    /* Reset & Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: radial-gradient(circle at top, #0f172a, #000000);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-
-    /* Card Container */
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 40px 30px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-      text-align: center;
-      max-width: 400px;
-      width: 100%;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    /* New Logo Styles */
-    .logo-container {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 20px;
-      perspective: 1000px;
-    }
-
-    .hexagon {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .hexagon-inner {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(145deg, #0f172a, #76b5ff);
-      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      border: 2px solid #76b5ff;
-      box-shadow: 0 0 20px #76b5ff88;
-    }
-
-    .logo-text {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: white;
-      text-shadow: 0 0 10px #76b5ff;
-      z-index: 2;
-    }
-
-    .circuit-lines {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(90deg, transparent 65%, rgba(118, 181, 255, 0.3) 65%, rgba(118, 181, 255, 0.3) 70%, transparent 70%),
-        linear-gradient(0deg, transparent 65%, rgba(118, 181, 255, 0.3) 65%, rgba(118, 181, 255, 0.3) 70%, transparent 70%);
-      background-size: 20px 20px;
-      opacity: 0.6;
-      z-index: 1;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0) rotateX(5deg);
-      }
-      50% {
-        transform: translateY(-10px) rotateX(5deg);
-      }
-    }
-
-    /* Existing Content Styles */
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #76b5ff;
-    }
-
-    p {
-      font-size: 1rem;
-      color: #c0c0c0;
-      margin-bottom: 30px;
-    }
-
-    .button-group {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .btn-wrapper {
-      position: relative;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px 0;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #000;
-      background: linear-gradient(145deg, #ffffff, #cccccc);
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      background: #76b5ff;
-      color: #000;
-      transform: translateY(-2px);
-    }
-
-    .copied-message {
-      position: absolute;
-      top: 110%;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.85rem;
-      color: #76ff76;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
-    }
-
-    .copied-message.show {
-      opacity: 1;
-    }
-
-    @media (max-width: 480px) {
-      .card {
-        padding: 30px 20px;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
-      
-      .logo-text {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dodge the Blocks</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="card">
-    <!-- New Hexagonal Logo -->
-    <div class="logo-container">
-      <div class="hexagon">
-        <div class="hexagon-inner">
-          <span class="logo-text">YB3</span>
-          <div class="circuit-lines"></div>
-        </div>
-      </div>
+  <div id="menu" class="menu">
+    <h1>Dodge the Blocks</h1>
+    <p id="userDisplay">Not logged in</p>
+    <button id="loginBtn">Login with Discord</button>
+    <button id="playBtn" disabled>Play</button>
+    <button id="skinsBtn">Skins</button>
+    <button id="leaderboardBtn">Leaderboard</button>
+  </div>
+
+  <div id="skinsMenu" class="menu hidden">
+    <h2>Select Skin</h2>
+    <div class="skins">
+      <div class="skin" data-color="#00adb5" style="background:#00adb5"></div>
+      <div class="skin" data-color="#ff2e63" style="background:#ff2e63"></div>
+      <div class="skin" data-color="#4cd137" style="background:#4cd137"></div>
+      <div class="skin" data-color="#fbc531" style="background:#fbc531"></div>
     </div>
+    <button id="backFromSkins">Back</button>
+  </div>
 
-    <h1>YB3 Executor</h1>
-    <p>Your ultimate tool for Roblox enhancement</p>
+  <div id="leaderboardMenu" class="menu hidden">
+    <h2>Leaderboard</h2>
+    <ol id="leaderboardList"></ol>
+    <button id="backFromLeaderboard">Back</button>
+  </div>
 
-    <div class="button-group">
-      <div class="btn-wrapper">
-        <button onclick="copyToClipboard(this, 'https://discord.com/channels/1370632127263281223/1371066574336692394')">Download</button>
-        <div class="copied-message">Copied!</div>
-      </div>
-      <div class="btn-wrapper">
-        <button onclick="copyToClipboard(this, 'https://discord.gg/cTsJUmewDS')">Join Discord</button>
-        <div class="copied-message">Copied!</div>
-      </div>
+  <div id="gameUI" class="hidden">
+    <canvas id="gameCanvas" width="400" height="600"></canvas>
+    <div class="controls">
+      <p>← Move | → Move</p>
+      <button id="restartBtn">Restart</button>
+      <button id="menuBtn">Menu</button>
     </div>
   </div>
 
-  <script>
-    function copyToClipboard(button, text) {
-      navigator.clipboard.writeText(text).then(() => {
-        const msg = button.parentElement.querySelector('.copied-message');
-        msg.classList.add('show');
-        setTimeout(() => {
-          msg.classList.remove('show');
-        }, 2000);
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
