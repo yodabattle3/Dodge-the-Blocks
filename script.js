@@ -2,7 +2,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 const DISCORD_CLIENT_ID = "1435854292002279556"; // <--- Replace
-const REDIRECT_URI = "https://yodabattle3.github.io/Dodge-the-Blocks/";
+const REDIRECT_URI = "https://yodabattle3.github.io/Dodge-the-Blocks";
 const WEBHOOK_URL = "https://discord.com/api/webhooks/1426277633259470919/QFLDubjOeM5DRpQ-VHlXMEOKgbgWlG0q-EnuTgAbdn67F8osnjiS_CFAF-DJ5jtswA8i"; // <--- Replace
 
 let discordUser = null;
@@ -176,5 +176,6 @@ document.querySelectorAll(".skin").forEach(skin => {
     alert("✅ Skin selected!");
   });
 });
+
 
 
