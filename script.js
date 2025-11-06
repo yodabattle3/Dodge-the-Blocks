@@ -34,7 +34,7 @@ document.getElementById("loginBtn").addEventListener("click", () => {
 // If redirected from Discord OAuth
 if (window.location.hash.includes("access_token")) {
   const token = new URLSearchParams(window.location.hash.substr(1)).get("access_token");
-  window.history.replaceState({}, document.title, "/");
+  window.history.replaceState({}, document.title, REDIRECT_URI);
 
   fetch("https://discord.com/api/users/@me", {
     headers: { Authorization: `Bearer ${token}` }
@@ -176,6 +176,7 @@ document.querySelectorAll(".skin").forEach(skin => {
     alert("✅ Skin selected!");
   });
 });
+
 
 
 
