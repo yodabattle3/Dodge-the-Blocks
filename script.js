@@ -97,7 +97,7 @@ function saveScore(score) {
     body: JSON.stringify({
       embeds: [{
         title: "🏆 New Score!",
-        description: `**${username}** scored **${score}** points!`,
+        description: `**@${username}** scored **${score}** points!`,
         color: 0x00adb5
       }]
     })
@@ -176,3 +176,4 @@ document.querySelectorAll(".skin").forEach(skin => {
     alert("✅ Skin selected!");
   });
 });
+
