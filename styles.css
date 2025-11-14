@@ -1,35 +1,55 @@
 body {
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  background: linear-gradient(135deg, #0f0f3d, #1b1b4a);
   color: white;
   font-family: 'Segoe UI', sans-serif;
   text-align: center;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 h1, h2 {
   margin: 20px 0;
-  color: #00adb5;
+  color: #00eaff;
+  text-shadow: 0 0 15px #00eaff;
 }
 
 button {
   background: #00adb5;
   border: none;
   color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 16px;
-  margin: 8px;
+  padding: 12px 25px;
+  border-radius: 12px;
+  font-size: 18px;
+  margin: 10px;
   cursor: pointer;
   transition: 0.3s;
+  box-shadow: 0 0 10px #00adb5;
 }
 
 button:hover {
-  background: #02c39a;
+  background: #02d1c7;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px #02d1c7;
+}
+
+button:disabled {
+  background: #555;
+  box-shadow: none;
+  cursor: not-allowed;
 }
 
 .hidden {
   display: none;
+}
+
+.fade {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
 }
 
 .menu {
@@ -40,30 +60,32 @@ canvas {
   background-color: #0f3460;
   display: block;
   margin: 20px auto;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #00adb5;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #00eaff;
 }
 
 .skins {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
 .skin {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
   cursor: pointer;
   border: 3px solid transparent;
   transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255,255,255,0.2);
 }
 
 .skin:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
   border-color: white;
+  box-shadow: 0 0 20px white;
 }
 
 .controls {
