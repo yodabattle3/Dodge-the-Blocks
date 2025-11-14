@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dodge the Blocks</title>
+  <title>Dodge the Blocks+</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="menu" class="menu">
-    <h1>Dodge the Blocks</h1>
+  <div id="menu" class="menu fade">
+    <h1>Dodge the Blocks+</h1>
     <p id="userDisplay">Not logged in</p>
     <button id="loginBtn">Login with Discord</button>
     <button id="playBtn" disabled>Play</button>
@@ -16,24 +16,25 @@
     <button id="leaderboardBtn">Leaderboard</button>
   </div>
 
-  <div id="skinsMenu" class="menu hidden">
-    <h2>Select Skin</h2>
+  <div id="skinsMenu" class="menu hidden fade">
+    <h2>Select Your Skin</h2>
     <div class="skins">
       <div class="skin" data-color="#00adb5" style="background:#00adb5"></div>
       <div class="skin" data-color="#ff2e63" style="background:#ff2e63"></div>
       <div class="skin" data-color="#4cd137" style="background:#4cd137"></div>
       <div class="skin" data-color="#fbc531" style="background:#fbc531"></div>
+      <div class="skin" data-color="#9b59b6" style="background:#9b59b6"></div>
     </div>
     <button id="backFromSkins">Back</button>
   </div>
 
-  <div id="leaderboardMenu" class="menu hidden">
+  <div id="leaderboardMenu" class="menu hidden fade">
     <h2>Leaderboard</h2>
     <ol id="leaderboardList"></ol>
     <button id="backFromLeaderboard">Back</button>
   </div>
 
-  <div id="gameUI" class="hidden">
+  <div id="gameUI" class="hidden fade">
     <canvas id="gameCanvas" width="400" height="600"></canvas>
     <div class="controls">
       <p>← Move | → Move</p>
